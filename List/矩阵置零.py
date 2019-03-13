@@ -1,3 +1,4 @@
+'''遗憾的是，不是自己写的，这个方法实在是巧妙'''
 class Solution(object):
     def setZeroes(self, matrix):
         """
