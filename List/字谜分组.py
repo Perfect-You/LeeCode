@@ -28,3 +28,30 @@ class Solution(object):
             l.append(new)
             i+=1
         return l
+'''又进行了一点改进，循环少了一层吧，不过还是会超过时间限制'''
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        def issame(s1,s2):
+            x=list(s1)
+            x.sort()
+            y=list(s2)
+            y.sort()
+            if x==y:
+                return True
+            else:
+                return False
+        li=[]
+        re=[]
+        li.append(strs[0])
+        re.append([strs[0]])
+        for i in range(1,len(strs)):
+            j=0
+            while j<len(li):
+                if issame(strs[i],li[j]):
+                    re[j].append(strs[i])
+                    break
+                j+=1
+            if j==len(li):
+                li.append(strs[i])
+                re.append([strs[i]])
+        return re
