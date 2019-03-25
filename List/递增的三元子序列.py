@@ -16,3 +16,18 @@ class Solution:
                     j+=1   
             i+=1
         return False
+'''当当当当，新的答案来啦，别人的方法，很巧妙啊'''
+class Solution:
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        if len(nums)<3:
+            return False
+        x=2**32-1
+        y=2**32-1
+        for i in nums:
+            if i<=x:
+                x=i
+            elif i<=y and i>x:
+                y=i
+            else:
+                return True
+        return False
